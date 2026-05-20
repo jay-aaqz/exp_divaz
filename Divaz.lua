@@ -65,6 +65,11 @@ local function wireNailWeapon(Character: Model)
 
 	NailTool.Activated:Connect(function()
 		Utils.CreateNotification("nails should WORK!")
+
+		DivazEvent:FireServer({
+			Event = "Hit",
+			ClientHitbox = SharedFunctions.CreateHitbox(Character, 3.8 + 1),
+		})
 	end)
 end
 
