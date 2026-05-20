@@ -87,7 +87,11 @@ local function getNearestPlayer(Character: Model)
 	local NearestDistance = math.huge
 
 	for _, OtherPlayer: Player in pairs(Players:GetPlayers()) do
-		local OtherCharacter: Model = OtherPlayer
+		if OtherPlayer == Player then
+			continue
+		end
+
+		local OtherCharacter: Model = OtherPlayer.Character
 		if not OtherCharacter then
 			continue
 		end
